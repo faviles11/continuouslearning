@@ -180,7 +180,11 @@ spec:                    -> Pod actual configuration
 | `crictl ps PIPE grep PODNAME`  | Shows running containers matching the pods. |
 | `/var/log/PODDIR`              | Fetch pod data.                             |
 
-### Example of kubectl describe pod PODNAME:
+### Example of:
+
+```bash
+kubectl describe pod PODNAME
+```
 
 ```text
 Name:         PODNAME
@@ -204,7 +208,12 @@ Events:
   Normal  Started    1m    kubelet            Started container my-app-container
 ```
 
-### Example of kubectl logs PODNAME:
+### Example of k:
+
+```bash
+kubectl logs PODNAME
+
+```
 
 ```text
 [INFO] Server started at http://0.0.0.0:8080
@@ -215,11 +224,20 @@ Events:
 
 ### Example of:
 
+```bash
 crictl ps | grep PODNAME
 
+```
+
+```text
 a1b2c3d4e5f6 my-app:latest About a minute ago Running PODNAME
 
+```
+
+```bash
 crictl inspect a1b2c3d4e5f6
+
+```
 
 ```text
 {
@@ -321,39 +339,13 @@ helm list
 
 ---
 
-## Maintaining Infrastructure
+## Deployment types
 
-| Command                                                      | Description                                                    |
-| ------------------------------------------------------------ | -------------------------------------------------------------- |
-| `kubectl create deployment nginx --image=nginx --replicas=0` | Creates a deployment with no active pods (useful for testing). |
-
-| Use Case               | Note                                        |
-| ---------------------- | ------------------------------------------- |
-| Database in this setup | Not recommended without persistent storage. |
-
----
-
-## ReplicaSets
-
-| Feature    | Description                                                                                         |
-| ---------- | --------------------------------------------------------------------------------------------------- |
-| ReplicaSet | Ensures the desired number of pod replicas are running. Automatically handles volumes for each pod. |
-
----
-
-## DaemonSets
-
-| Feature   | Description                                                   |
-| --------- | ------------------------------------------------------------- |
-| DaemonSet | Ensures a specific pod runs on **every node** in the cluster. |
-
----
-
-## Deployments
-
-| Feature    | Description                                                                              |
-| ---------- | ---------------------------------------------------------------------------------------- |
-| Deployment | Describes the desired state of pods, manages ReplicaSets, rolling updates, and rollback. |
+| Command    | Description                                                                                                                          |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Deployment | Creates a deployment with no active pods (useful for testing). -> Database in this setup Not recommended without persistent storage. |
+| ReplicaSet | Ensures the desired number of pod replicas are running. Automatically handles volumes for each pod.                                  |
+| DaemonSet  | Ensures a specific pod runs on **every node** in the cluster.                                                                        |
 
 ---
 
