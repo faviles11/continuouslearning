@@ -285,7 +285,7 @@ cat PODNAME/0.log
 
 | Error Type               | Description                                                                                            |
 | ------------------------ | ------------------------------------------------------------------------------------------------------ |
-| High CPU or Volume usage | Check with `kubectl describe pod`.                                                                     |
+| High CPU or Volume usage | Check with `kubectl describe pod` or `kubectl top pod PODNAME`.                                        |
 | `CrashLoopBackOff`       | The pod failed to start multiple times. Which means that something could be happenning with the image. |
 
 ---
