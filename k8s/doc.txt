@@ -1,0 +1,127 @@
+kubectl -> manda ordenes al API
+kubelet -> cerebro, traduce kubectl 
+
+------- 
+
+kubadm commands 
+
+-------
+
+kube-system 
+etcd -> base de datos de CNF the linux, almacena 
+
+dns -> calico -> api server 
+proxy + kubelet + calico 
+scheduler -> dice adonde va cada pod
+
+-------
+
+container-d runtime de K8s
+
+-------
+
+TROUBLESHOOT PODS:
+
+1. kubectl describe pod PODNAME -> event / kubectl logs PODNAME
+
+Events: 
+Type Reason Age From Message
+
+2. crictl ps | grep PODNAME
+
+3. crash dir 
+cd var/log
+-> container
+-> cni 
+-> pods
+go to dir of the pod and then cat the file
+
+FREQUENT ERRORS: 
+
+1. Persistent volume or a lot of CPU: 
+kubectl pod PODNAME
+
+2. CrashLoopBackOff: intente iniciar varias veces pero no pudo
+
+--------
+
+namespace & control group
+
+--------
+
+labels & k8s -> net traffic, block traffic
+
+-------
+
+manifiest & helm packages
+
+-------
+
+kubectl create SERVICE/RESOURCE
+
+kubectly create deployment nginx --image="" --replicas=5
+
+kubectl delete SERVICE/RESOURCE
+
+------- 
+
+MAINTAIN INFRA ALWAYS WORKING
+
+kubectly create deployment nginx --image="" --replicas=0
+-> no seria recomendable poner una BD porque no tiene la capacidad de crear storage 
+dentro del archivo de config
+
+ReplicaSets
+-> si permite la capacidad de crear PVS
+-> 1 a N 
+-> se le indica la cantidad de replicas y se son n pods son n volumes
+
+DaemonSets
+-> 
+
+-------
+
+Deployments -> Que es, de que puede estar compuesto
+
+-------
+
+etc/kubernetes/manifiest 
+-> manifiest are default and NECESSARY infra of K8s
+
+------
+
+PV 
+
+Status:Bound and PV linked to PVC with Claim, same capacity
+PVC: Lo que va a usar el pod, aislado del cluster 
+Se monta al pod con un VolumeMount en el archivo de configuracion del pod
+Storage Class: Trabajar con proveedores
+
+-------
+
+--dry-run FLAG
+
+-------
+
+resources in config yml for limit resources -> memoria RAM & CPU
+
+-------
+
+SERVICIOS
+-> Comunicacion entre servicios dentro y fuera del cluster
+
+kubectl expose pod PODNAME
+1. NodePort  -> Ayuda a exponer un servicio afuera del cluster
+2. ClusterIP -> Ayudan a la comunicacion interna
+3. LB        -> CP 
+
+-------
+
+ip -a para get cluster nod
+
+-------
+
+dir cluster
+
+-------
+

@@ -1,0 +1,12 @@
+docker version
+docker images
+docker pull 
+docker build -t
+docker run
+docker start 
+docker stop
+docker restart
+docker rm 
+docker rmi
+docker logs 
+docker exec -it 
