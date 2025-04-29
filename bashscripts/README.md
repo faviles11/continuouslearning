@@ -49,16 +49,7 @@
 
 ---
 
-## 5. Automation & Packages
-
-| Administration                              | Troubleshooting                                        |
-| ------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------- |
-| `apt update && apt upgrade` – Update system | `dpkg -l                                               | grep name` – Check if a package is installed   |
-| `apt install nginx` – Install software      | `which command` – Locate an executable                 | |
-| `crontab -e` – Edit user cron jobs          | `grep CRON /var/log/syslog` – Check cron logs (Debian) | |
-| `crontab -l` – List scheduled tasks         | `journalctl                                            | grep CRON` – Check cron logs (systemd distros) |
-
-## 6. Linux Directory Structure
+## 5. Linux Directory Structure
 
 | Directory        | Description                                                             |
 | ---------------- | ----------------------------------------------------------------------- |
